@@ -1,9 +1,19 @@
 package com.example.cms.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.xml.bind.annotation.XmlAttribute;
+
 public class Customer {
+
+    // masking variables with custom names
+    @JsonProperty("first_name")
     private String customerFirstName;
+    @JsonProperty("last_name")
     private String customerLastName;
+    @JsonProperty("id")
     private int customerId;
+    @JsonProperty("email")
     private String customerEmail;
 
     public String getCustomerEmail() {
