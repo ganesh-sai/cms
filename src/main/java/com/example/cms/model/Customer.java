@@ -2,17 +2,26 @@ package com.example.cms.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Customer {
 
     // masking variables with custom names
-    @JsonProperty("first_name")
-    private String customerFirstName;
-    @JsonProperty("last_name")
-    private String customerLastName;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonProperty("id")
     private int customerId;
+
+    @JsonProperty("first_name")
+    private String customerFirstName;
+
+    @JsonProperty("last_name")
+    private String customerLastName;
+
     @JsonProperty("email")
     private String customerEmail;
 
