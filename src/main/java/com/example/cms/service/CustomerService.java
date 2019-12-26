@@ -1,7 +1,7 @@
 package com.example.cms.service;
 
 import com.example.cms.api.dao.CustomerDAO;
-import com.example.cms.exception.CustomerNotFound;
+import com.example.cms.exception.CustomerNotFoundException;
 import com.example.cms.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,7 +26,7 @@ public class CustomerService {
     public Customer getCustomer(int customerId) {
         Optional<Customer> optionalCustomer = customerDAO.findById(customerId);
         if(!optionalCustomer.isPresent()) {
-            throw new CustomerNotFound("Customer Record not found exception");
+            throw new CustomerNotFoundException("Customer Record not found exception");
         }
         return optionalCustomer.get();
     }
